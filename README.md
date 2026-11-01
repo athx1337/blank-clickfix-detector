@@ -102,7 +102,7 @@ flowchart TD
 ## Installation & Usage
 
 > [!NOTE]
-> **Chromium Browsers Only:** BLANK is designed specifically for Chromium-based browsers (Google Chrome, Microsoft Edge, Brave, Opera, Vivaldi, Arc, etc.) utilizing the modern Chrome Manifest V3 service worker and Offscreen Document APIs. Firefox and Safari are not currently supported.
+> **Chromium Browsers Only (Firefox & Safari Coming Soon):** BLANK is currently designed for Chromium-based browsers (Google Chrome, Microsoft Edge, Brave, Opera, Vivaldi, Arc, etc.) utilizing Manifest V3 service worker and Offscreen Document APIs. Native support for Firefox and Safari is in active development and coming soon.
 
 ### 1. Load Unpacked (Chrome / Edge / Brave / Opera / Arc)
 1. Clone this repository (or download `blank-0.3.0.zip` from [Releases](https://github.com/athx1337/blank-clickfix-detector/releases)):
