@@ -107,8 +107,8 @@ flowchart TD
 ### 1. Load Unpacked (Chrome / Edge / Brave / Opera / Arc)
 1. Clone this repository (or download `blank-0.3.0.zip` from [Releases](https://github.com/athx1337/blank-clickfix-detector/releases)):
    ```bash
-   git clone https://github.com/your-username/blank.git
-   cd blank
+   git clone https://github.com/athx1337/blank-clickfix-detector.git
+   cd blank-clickfix-detector
    ```
 2. Open your browser's extension management page:
    - **Chrome / Brave:** `chrome://extensions`
