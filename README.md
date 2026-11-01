@@ -6,10 +6,11 @@
 
 <p align="center">
   <strong>Context-aware, on-device AI defense against deceptive copy-and-run web instructions.</strong><br>
-  Self-contained Chrome & Edge Manifest V3 extension powered by native on-device machine learning and heuristic intelligence. Neutralizes ClickFix social engineering and clipboard hijacking with zero cloud latency and 100% local privacy.
+  Self-contained Chromium Manifest V3 extension powered by native on-device machine learning and heuristic intelligence. Neutralizes ClickFix social engineering and clipboard hijacking with zero cloud latency and 100% local privacy.
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Platform-Chromium_Only-blue?style=flat-square&logo=googlechrome" alt="Platform: Chromium Only" />
   <img src="https://img.shields.io/badge/Manifest-V3-blue.svg?style=flat-square" alt="Manifest V3" />
   <img src="https://img.shields.io/badge/Version-0.3.0-orange.svg?style=flat-square" alt="Version 0.3.0" />
   <img src="https://img.shields.io/badge/Engine-Native_On--Device_AI%2FML-blueviolet.svg?style=flat-square" alt="Engine" />
@@ -100,8 +101,11 @@ flowchart TD
 
 ## Installation & Usage
 
-### 1. Load Unpacked (Chrome / Edge / Brave / Opera)
-1. Clone this repository:
+> [!NOTE]
+> **Chromium Browsers Only:** BLANK is designed specifically for Chromium-based browsers (Google Chrome, Microsoft Edge, Brave, Opera, Vivaldi, Arc, etc.) utilizing the modern Chrome Manifest V3 service worker and Offscreen Document APIs. Firefox and Safari are not currently supported.
+
+### 1. Load Unpacked (Chrome / Edge / Brave / Opera / Arc)
+1. Clone this repository (or download `blank-0.3.0.zip` from [Releases](https://github.com/athx1337/blank-clickfix-detector/releases)):
    ```bash
    git clone https://github.com/your-username/blank.git
    cd blank
