@@ -16,6 +16,12 @@ test-profile*/
 scratch/
 experiments/
 checkpoints/
+AGENTS.md
+demo/
+package.json
+requirements.lock.txt
+requirements-dev.lock.txt
+models/
 
 # Python caches and artifacts
 __pycache__/
@@ -39,15 +45,7 @@ reports/
 test-results/
 
 # Agent internals & tool cache
-.agents/gsd-core/
-.agents/skills/gsd-*/
-.agents/agents/
-.agents/hooks/
-.agents/scripts/
-.agents/settings.json
-.agents/mcp_config.json
-.agents/.gsd-profile
-.agents/gsd-*
+.agents/
 
 # OS-specific files
 .DS_Store
