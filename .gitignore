@@ -43,6 +43,7 @@ extension/assets/semantic/
 dist/
 reports/
 test-results/
+Blank.ai Deceptive Instructions Alert.png
 
 # Agent internals & tool cache
 .agents/

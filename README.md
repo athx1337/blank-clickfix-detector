@@ -194,7 +194,6 @@ python -m pytest tests/test_package.py
 ## Project Structure
 
 ```
-├── .agents/                 # Project verification and testing skills
 ├── backend/                 # Reference Python API & feature extraction tooling
 │   ├── app.py               # Reference FastAPI server
 │   ├── detector.py          # Unified rules + ML analysis engine

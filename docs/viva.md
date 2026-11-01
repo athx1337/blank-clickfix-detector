@@ -18,7 +18,7 @@
 
 **What can the current evaluation establish?** That the pipeline runs reproducibly on authored examples and produces measurable comparisons. It cannot establish real-world efficacy. Rules and hybrid may tie; that is a valid result, not a reason to alter the test set.
 
-**How is privacy handled?** Detection runs in the extension using bundled rules and JSON model weights. There is no runtime server or pairing. Structural exclusions, trusted-context session storage, explicit website permission, no telemetry, and no persistent browsing log reduce exposure. Review uses free local ECC-guided checks.
+**How is privacy handled?** Detection runs in the extension using bundled rules and JSON model weights. There is no runtime server or pairing. Structural exclusions, trusted-context session storage, explicit website permission, no telemetry, and no persistent browsing log reduce exposure. Local review uses automated unit, lint, and browser test suites.
 
 **Why keep Python?** It trains and evaluates the classifier and provides a reference implementation. The browser reproduces TF-IDF/logistic inference from exported vocabulary, IDF, weights and thresholds; parity tests compare outputs. Users need only the extension.
 

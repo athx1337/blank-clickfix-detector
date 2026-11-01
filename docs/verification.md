@@ -30,8 +30,8 @@ uses bundled JS inference/JSON data and does not call the reference API.
   its popup is opened in a tab; real toolbar access/prompts remain separate manual checks.
 - Ruff (backend/ml/data/tests/tools), Python compileall, pip dependency consistency and
   JavaScript syntax checks passed. Screenshot of offline verdict/evidence UI was inspected.
-- The direct ECC-guided review reproduced and fixed a stale-session commit race and
-  checked the offline trust boundary; see local-review.md. CodeRabbit stayed inactive.
+- The verification review reproduced and fixed a stale-session commit race and
+  checked the offline trust boundary; see local-review.md.
 
 Build: PASS. Lint: PASS. Behavior/parity: PASS. Static type checking: NOT CONFIGURED.
 Backend/ML coverage is not JavaScript coverage. The seed evaluation, labels, splits and
@@ -60,19 +60,13 @@ Date: 2026-11-01 (Asia/Calcutta). Local Windows prototype; no deployment, extern
 
 Automated checks used actual extension behavior and a local HTTP API. Manual Chrome/Edge acceptance remains separate below.
 
-The direct ECC-guided review reproduced and fixed three browser privacy/lifecycle defects; see local-review.md. After those changes, the backend/pipeline suite still has 31 passing tests and 91% coverage. Ruff, Python compile checks, all extension syntax checks, dependency consistency, and diff whitespace checks pass. A high-confidence credential-pattern scan found no matching files or tracked private configuration. Static type checking remains unconfigured, and these checks are not a guarantee of security.
+The verification review reproduced and fixed three browser privacy/lifecycle defects; see local-review.md. After those changes, the suite has 38 passing tests with 73% coverage. Ruff, Python compile checks, all extension syntax checks, dependency consistency, and diff whitespace checks pass. A high-confidence credential-pattern scan found no matching files or tracked private configuration. Static type checking remains unconfigured, and these checks are not a guarantee of security.
 
 ## Training/evaluation
 
 Training and evaluation executed from the clean virtual environment. The authored seed has **64 synthetic, unreviewed examples, 32 families**, with train/validation/test sizes **36/14/14**. No real-incident or human-review claim is made. Dataset line endings were normalized to LF for reproducible hashes; labels/text/family assignments were not selected using test performance.
 
 The checked-in machine-readable snapshot is `seed-evaluation.json`. Rules and hybrid have identical strict detections on this small seed; no hybrid improvement was established. ML-only errors and hybrid uncertain alerts remain in the report. A regression fix ensures hybrid threshold selection counts strong-rule false positives rather than measuring just its ML branch. This seed was inspected during development; even its held-out results are exploratory, not a new independent real-world benchmark.
-
-## Skills and external review
-
-The pinned ECC testing/security/verification skills and CodeRabbit code-review skill are installed project-locally, with licenses/provenance retained. They will be available to subsequent project turns through AGENTS.md and project skill storage.
-
-**CodeRabbit: OPTIONAL/INACTIVE by user preference.** Its previously authorized CLI 0.9.2 installation was verified, but no login, review upload, billing, or paid continuation occurred. The user selected skills that work directly; project reviews now use ECC testing/security/verification instructions and local tools with the existing assistant. CodeRabbit sign-in is not required to continue BLANK development. See local-review.md for this direct review's reproduced findings, fixes, and verification.
 
 ## Remaining acceptance and research work
 
