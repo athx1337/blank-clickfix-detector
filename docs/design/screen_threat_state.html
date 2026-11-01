@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BLANK. Threat Alert</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed": "#6ffbbe",
+            "background": "#131315",
+            "secondary-fixed-dim": "#45dfa4",
+            "on-tertiary-container": "#00422c",
+            "on-tertiary": "#003825",
+            "on-primary-fixed-variant": "#005236",
+            "on-primary-container": "#00422b",
+            "primary": "#4edea3",
+            "outline-variant": "#3c4a42",
+            "outline": "#86948a",
+            "surface-container-low": "#1c1b1e",
+            "inverse-surface": "#e5e1e4",
+            "tertiary-fixed-dim": "#68dba9",
+            "primary-fixed-dim": "#4edea3",
+            "surface-container": "#201f22",
+            "on-secondary-container": "#00452e",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#3eb686",
+            "surface-container-high": "#2a2a2c",
+            "on-surface": "#e5e1e4",
+            "on-secondary": "#003825",
+            "on-background": "#e5e1e4",
+            "inverse-primary": "#006c49",
+            "secondary": "#45dfa4",
+            "tertiary": "#68dba9",
+            "on-secondary-fixed-variant": "#005137",
+            "surface-container-lowest": "#0e0e10",
+            "on-tertiary-fixed": "#002114",
+            "surface-tint": "#4edea3",
+            "surface": "#131315",
+            "surface-dim": "#131315",
+            "on-tertiary-fixed-variant": "#005137",
+            "secondary-container": "#00bd85",
+            "tertiary-fixed": "#85f8c4",
+            "error": "#ffb4ab",
+            "on-secondary-fixed": "#002114",
+            "primary-container": "#10b981",
+            "on-primary": "#003824",
+            "inverse-on-surface": "#313032",
+            "error-container": "#93000a",
+            "surface-container-highest": "#353437",
+            "on-surface-variant": "#bbcabf",
+            "surface-bright": "#39393b",
+            "on-error": "#690005",
+            "surface-variant": "#353437",
+            "secondary-fixed": "#68fcbf",
+            "on-primary-fixed": "#002113"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-md": "0.75rem",
+            "margin": "1rem",
+            "gutter": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-xl": "1.5rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "code-md": ["JetBrains Mono"],
+            "body-md": ["Inter"],
+            "badge-technical": ["JetBrains Mono"],
+            "headline-md": ["Inter"],
+            "label-caps": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "code-lg": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "headline-lg": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "code-md": ["11px", { "lineHeight": "15px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "badge-technical": ["10px", { "lineHeight": "12px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "headline-md": ["16px", { "lineHeight": "22px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-caps": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "headline-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "code-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Scrollbar containment for 380px popover spec */
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+    
+    .tactical-border {
+      border: 1px solid #22232B;
+    }
+    
+    .threat-bevel {
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      box-shadow: inset 0 1px 0 0 rgba(239, 68, 68, 0.15);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#08080A] text-on-surface flex items-center justify-center min-h-screen p-space-sm selection:bg-error-container selection:text-error">
+<!-- Fixed 380px Browser Extension Container -->
+<div class="w-[380px] max-h-[580px] bg-surface-container-lowest tactical-border flex flex-col justify-between overflow-hidden shadow-2xl relative">
+<!-- Top Horizon Lighting Rim for Alert State -->
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#EF4444] to-transparent opacity-80 z-20"></div>
+<!-- TopAppBar (Shared Component Implementation) -->
+<header class="bg-surface-container-lowest text-primary border-b border-outline-variant flex justify-between items-center w-full px-space-md py-space-sm max-w-[380px] mx-auto z-10">
+<div class="flex items-center gap-space-sm">
+<span class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface flex items-center gap-1.5">
+          BLANK.
+          <!-- Red Active Threat Dot Indicator -->
+<span class="inline-flex w-2 h-2 rounded-full bg-[#EF4444] animate-pulse"></span>
+</span>
+<span class="text-code-md font-code-md px-1.5 py-0.5 rounded bg-surface-container text-[#8A8D9B] border border-[#22232B]">
+          v0.3.0
+        </span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-badge-technical font-badge-technical px-1.5 py-0.5 rounded bg-[rgba(239,68,68,0.12)] text-[#EF4444] border border-[rgba(239,68,68,0.3)] tracking-wider">
+          1 THREAT
+        </span>
+<button class="text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 p-1 rounded active:scale-95 transition-transform" title="Pop out">
+<span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 p-1 rounded active:scale-95 transition-transform" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Scrollable Popover Content Area -->
+<main class="flex-1 overflow-y-auto px-space-md py-space-sm flex flex-col gap-space-sm">
+<!-- Target URL Pill Banner -->
+<div class="flex items-center justify-between bg-[#0F0F12] border border-[#22232B] px-2.5 py-1.5 rounded">
+<div class="flex items-center gap-1.5 overflow-hidden">
+<span class="material-symbols-outlined text-[#8A8D9B] text-[13px]" data-icon="shield">shield</span>
+<span class="font-code-md text-code-md text-on-surface truncate max-w-[190px]">
+            download-driver-support.com/auth
+          </span>
+</div>
+<span class="flex items-center gap-1 font-badge-technical text-badge-technical text-[#EF4444] bg-[rgba(239,68,68,0.1)] px-1.5 py-0.5 rounded border border-[rgba(239,68,68,0.25)] shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-[#EF4444]"></span>
+          Deceptive Lure
+        </span>
+</div>
+<!-- Hero Status Section (Tactical Alert Banner) -->
+<section class="bg-[#12090B] threat-bevel p-space-md rounded flex flex-col gap-2 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[rgba(239,68,68,0.15)] text-[#EF4444] border border-[rgba(239,68,68,0.3)]">
+<span class="material-symbols-outlined text-[12px] animate-pulse" data-icon="warning">warning</span>
+<span class="font-label-caps text-label-caps tracking-wider">SUSPICIOUS INSTRUCTIONS DETECTED</span>
+</div>
+<!-- Subtle Red Glow Indicator -->
+<div class="w-2.5 h-2.5 rounded-full bg-[#EF4444] shadow-[0_0_12px_2px_rgba(239,68,68,0.75)] animate-ping opacity-75"></div>
+</div>
+<div class="flex items-start gap-2.5 mt-1">
+<div class="w-8 h-8 rounded bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.3)] flex items-center justify-center shrink-0 text-[#EF4444]">
+<span class="material-symbols-outlined text-[20px]" data-icon="warning">warning</span>
+</div>
+<div class="flex flex-col gap-1">
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">
+              Never copy or run terminal commands to verify you are human.
+            </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+              A deceptive ClickFix pattern was detected attempting to trick you into pasting malicious PowerShell/terminal payloads.
+            </p>
+</div>
+</div>
+</section>
+<!-- Quoted Evidence Card -->
+<section class="bg-[#0F0F12] border border-[#22232B] p-2.5 rounded flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-[#8A8D9B] tracking-wider uppercase">Extracted DOM Text</span>
+<span class="font-badge-technical text-badge-technical text-[#EF4444] bg-[rgba(239,68,68,0.1)] px-1 py-0.2 rounded border border-[rgba(239,68,68,0.2)]">
+            POWERSHELL_LURE
+          </span>
+</div>
+<div class="bg-[#08080A] border border-[rgba(239,68,68,0.25)] rounded p-2 text-[#FCA5A5] font-code-md text-code-md leading-relaxed select-all">
+<span class="text-[#EF4444] select-none font-bold mr-1">&gt;</span>"Verify you are human. Press Win+R, paste the code and press Enter."
+        </div>
+</section>
+<!-- Analysis Details (Structured Telemetry Accordion) -->
+<section class="bg-[#0F0F12] border border-[#22232B] rounded divide-y divide-[#1A1A22] text-on-surface">
+<details class="group" open="">
+<summary class="flex items-center justify-between px-2.5 py-1.5 cursor-pointer hover:bg-[#16161C] transition-colors list-none select-none">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[13px] text-[#8A8D9B]" data-icon="bug_report">bug_report</span>
+<span class="font-label-caps text-label-caps text-on-surface tracking-wider uppercase">TELEMETRY ANALYSIS</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-badge-technical text-badge-technical text-[#34D399] bg-[rgba(16,185,129,0.1)] px-1.5 py-0.2 rounded border border-[rgba(16,185,129,0.2)]">94.2% CONFIDENCE</span>
+<span class="material-symbols-outlined text-[14px] text-[#8A8D9B] transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</div>
+</summary>
+<div class="p-2.5 flex flex-col gap-1.5 bg-[#08080A]/60 font-code-md text-code-md">
+<div class="flex items-center justify-between border-b border-[#16161C] pb-1">
+<span class="text-[#8A8D9B]">Block ID</span>
+<span class="text-on-surface font-mono">block_04</span>
+</div>
+<div class="flex items-center justify-between border-b border-[#16161C] pb-1">
+<span class="text-[#8A8D9B]">Triggered Rule</span>
+<span class="text-[#EF4444] font-mono truncate max-w-[200px]" title="VERIFICATION_WITH_SYSTEM_EXECUTION">VERIFICATION_WITH_SYSTEM_EXECUTION</span>
+</div>
+<div class="flex items-start justify-between">
+<span class="text-[#8A8D9B] shrink-0">Vector</span>
+<span class="text-on-surface text-right font-mono text-[10px] text-[#E5E1E4]">RunDialog (Win+R) → Clipboard Payload</span>
+</div>
+</div>
+</details>
+</section>
+<!-- Cloud Second Opinion Card -->
+<section class="bg-[#0F0F12] border border-[#22232B] p-2.5 rounded flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="lock">lock</span>
+<span class="font-label-caps text-label-caps text-on-surface tracking-wider uppercase">Cloud Second Opinion</span>
+</div>
+<span class="font-badge-technical text-badge-technical text-[#8A8D9B] bg-[#16161C] px-1 py-0.5 rounded border border-[#22232B]">BYOK</span>
+</div>
+<!-- Provider Switcher -->
+<div class="grid grid-cols-2 gap-1.5">
+<button class="bg-[#16161C] border border-primary/40 px-2 py-1 rounded text-left flex items-center justify-between text-on-surface transition-colors hover:border-primary">
+<span class="font-code-md text-code-md truncate">Groq (Llama 3.3)</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</button>
+<button class="bg-[#0A0A0D] border border-[#22232B] px-2 py-1 rounded text-left flex items-center justify-between text-[#8A8D9B] transition-colors hover:border-[#3c4a42]">
+<span class="font-code-md text-code-md truncate">Gemini 1.5 Flash</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#3c4a42]"></span>
+</button>
+</div>
+<div class="flex items-center justify-between gap-2 pt-0.5">
+<button class="flex-1 bg-[#16161C] hover:bg-[#1D1E26] border border-[#2E303B] hover:border-[#4E5163] text-on-surface py-1 px-2 rounded font-body-sm text-body-sm flex items-center justify-center gap-1.5 transition-colors duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="smart_toy">smart_toy</span>
+<span>Analyze with Cloud Model</span>
+</button>
+</div>
+<p class="font-badge-technical text-badge-technical text-[#8A8D9B] text-center tracking-tight">
+          Privacy: Redacted snippets only · Zero plaintext leaks
+        </p>
+</section>
+<!-- Action Buttons -->
+<section class="flex flex-col gap-1.5 pt-1">
+<button class="w-full bg-[#EF4444] hover:bg-[#DC2626] active:bg-[#B91C1C] text-[#08080A] font-headline-sm text-headline-sm font-semibold py-1.5 px-3 rounded flex items-center justify-center gap-1.5 transition-colors duration-150 shadow-[0_0_12px_rgba(239,68,68,0.25)]">
+<span class="material-symbols-outlined text-[16px]" data-icon="refresh">refresh</span>
+<span>Rescan page</span>
+</button>
+<button class="w-full bg-transparent hover:bg-[rgba(239,68,68,0.08)] active:bg-[rgba(239,68,68,0.12)] border border-[rgba(239,68,68,0.4)] text-[#EF4444] font-body-sm text-body-sm py-1 px-3 rounded transition-colors duration-150">
+          Dismiss warning (proceed at own risk)
+        </button>
+</section>
+</main>
+<!-- Footer (Shared Component Implementation) -->
+<footer class="bg-surface-container-lowest text-primary border-t border-outline-variant flex flex-col items-center justify-center gap-space-xs w-full px-space-md py-space-sm max-w-[380px] mx-auto z-10 shrink-0">
+<div class="text-code-md font-code-md text-on-surface-variant flex items-center justify-center gap-2">
+<span>Works offline</span>
+<span>·</span>
+<span>Zero tracking</span>
+<span>·</span>
+<span>Open source</span>
+</div>
+<div class="text-code-md font-code-md flex items-center justify-center gap-3">
+<span class="text-on-surface-variant">Telemetry: <span class="text-[#EF4444] font-code-md">Disabled</span></span>
+<span class="text-on-surface-variant">·</span>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Rules (v14.2)</a>
+<span class="text-on-surface-variant">·</span>
+<a class="text-primary hover:underline transition-colors flex items-center gap-0.5" href="https://github.com" rel="noreferrer" target="_blank">
+<span>GitHub</span>
+<span class="material-symbols-outlined text-[11px]" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</footer>
+</div>
+</body></html>

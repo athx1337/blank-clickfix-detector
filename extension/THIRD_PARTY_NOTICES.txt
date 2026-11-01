@@ -1,0 +1,21 @@
+BLANK includes adaptations of the following open-source works.
+
+ClickFixMitigator, https://github.com/j0rd1s3rr4n0/ClickFixMitigator
+Commit ae0e5144930f391f97dd8a7cbe0aa08548ee0d3d
+Copyright (c) 2026 Jordi Serrano. MIT License, reproduced in licenses/ClickFixMitigator-MIT.txt.
+Selected English shortcut/paste patterns from browser-extension/content-script.js were
+adapted in backend/features.py, exported to assets/rules.json, and used by detector.js.
+Broad shortcut-only/non-English matches were removed; normalization, context, limits,
+raw evidence offsets, and verdict policy were added. No upstream page payloads are bundled.
+
+ClickGrab, https://github.com/MHaggis/ClickGrab
+Commit e5e78d67fb44172a24a4ac6adeceb7b7dae09e80
+Apache License 2.0, reproduced in licenses/ClickGrab-Apache-2.0.txt.
+extract_match_with_context from extractors.py was adapted in backend/features.py and
+translated for bounded raw evidence excerpts in detector.js. Offsets and the API were
+changed, and a 600-character limit added. Fetching/decoding/command execution is excluded.
+
+The full development reuse ledger is docs/third-party.md in the BLANK source repository.
+No GPL source is included. The browser model contains weights and vocabulary trained
+locally from BLANK's authored synthetic seed corpus; no third-party model runtime is bundled.
+Icons are original BLANK bracket-and-dot artwork rendered by tools/build_icons.py.

@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "BLANK",
+  "version": "0.3.0",
+  "version_name": "0.3.0 experimental AI",
+  "description": "On-device warnings for deceptive copy-and-run webpage instructions. No account or server required.",
+  "minimum_chrome_version": "120",
+  "icons": {"16": "icons/blank-16.png", "32": "icons/blank-32.png", "48": "icons/blank-48.png", "128": "icons/blank-128.png"},
+  "permissions": ["activeTab", "scripting", "storage", "offscreen", "clipboardRead"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "background": {"service_worker": "background.js"},
+  "action": {"default_popup": "popup.html", "default_title": "BLANK — scan this page",
+    "default_icon": {"16": "icons/blank-16.png", "32": "icons/blank-32.png"}},
+  "options_page": "options.html",
+  "content_security_policy": {"extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'none'; connect-src 'self' https://api.groq.com https://generativelanguage.googleapis.com"}
+}

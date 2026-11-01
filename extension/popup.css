@@ -1,0 +1,1406 @@
+/* ==========================================================================
+   Oxide Design System · Extension Core Tokens & Sub-Surface Security Theme
+   Authored in OKLCH per DESIGN(1).md specifications.
+   ========================================================================== */
+
+:root {
+  /* Sans & Mono Typography Definitions */
+  --font-sans: "SuisseIntl", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "GT America Mono", Consolas, "SF Mono", "Liberation Mono", Menlo, Courier, monospace;
+
+  /* Neutral Structural Plates (Tactile Oxide Hardware Scale) */
+  --color-neutral-0:    oklch(0.12 0.015 260);   /* Level -2: Deepest recessed terminal grooves & tracks */
+  --color-neutral-50:   oklch(0.15 0.012 260);   /* Level -1: Inset background panels & card cavities */
+  --color-neutral-100:  oklch(0.18 0.010 260);   /* Level  0: Base machine chassis substrate */
+  --color-neutral-200:  oklch(0.22 0.008 260);   /* Level +1: Extruded plates, tactile buttons, knobs */
+  
+  /* Telemetry Indicators (High-Contrast Foreground Text) */
+  --color-neutral-800:  oklch(0.79 0.0011 260);  /* Default scannable body text */
+  --color-neutral-1300: oklch(0.995 0.0001 260); /* Emissive text headers / maximum reflection */
+
+  /* CRT Phosphor Accent Anchors (Step 800 Lightness Uniformity) */
+  --color-green-800:    oklch(0.77 0.1919 163.7); /* System Secure / Normal Telemetry Anchor */
+  --color-red-800:      oklch(0.712 0.185 11.3);  /* Malicious Code / Threat Alert Anchor */
+  --color-yellow-800:   oklch(0.837 0.14 75);     /* Warning / Notice Attention Anchor */
+  --color-blue-800:     oklch(0.71 0.15 272);     /* Telemetry Stream / Info Anchor */
+
+  /* Semantic Token Layers: Surface */
+  --color-bg-default: var(--color-neutral-100);
+  --color-bg-raise: var(--color-neutral-200);
+  --color-bg-secondary: var(--color-neutral-50);
+  --color-bg-tertiary: var(--color-neutral-0);
+  --color-bg-hover: oklch(0.25 0.008 260);
+  --color-bg-accent: var(--color-green-800);
+  --color-bg-error: var(--color-red-800);
+  --color-bg-error-secondary: oklch(0.18 0.05 11.3);
+  --color-bg-notice-secondary: oklch(0.18 0.04 75);
+
+  /* Semantic Token Layers: Content */
+  --color-text-raise: var(--color-neutral-1300);
+  --color-text-default: var(--color-neutral-800);
+  --color-text-secondary: oklch(0.68 0.003 260);
+  --color-text-tertiary: oklch(0.50 0.005 260);
+  --color-text-accent: var(--color-green-800);
+  --color-text-error: oklch(0.84 0.14 11.3);
+  --color-text-notice: oklch(0.88 0.13 75);
+  --color-text-inverse: oklch(0.12 0.015 260);
+
+  /* Semantic Token Layers: Stroke */
+  --color-border-default: oklch(0.24 0.01 260);
+  --color-border-raise: oklch(0.28 0.01 260);
+  --color-border-secondary: oklch(0.08 0.02 260);
+  --color-border-accent: var(--color-green-800);
+  --color-border-error: var(--color-red-800);
+  --color-border-notice: var(--color-yellow-800);
+
+  /* Tight Industrial Geometry Radii (No pillowy corners) */
+  --radius-sm: 1px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --radius-full: 9999px;
+
+  /* Tactile Shadow Physics (Mapped to 315deg virtual illumination vector) */
+  --shadow-sunken-cavity:
+    inset 2px 2.5px 5px 0px rgba(0, 0, 0, 0.85),
+    inset -1px -1px 0px 0px oklch(0.26 0.008 260 / 0.4),
+    0px 1px 0px 0px oklch(0.28 0.01 260 / 0.7);
+
+  --shadow-extruded-plate:
+    inset 1px 1px 0px 0px oklch(0.32 0.01 260 / 0.5),
+    1px 1px 0px 0px oklch(0.08 0.02 260 / 0.9),
+    2px 3px 5px 0px rgba(0, 0, 0, 0.75),
+    0px 0px 12px 0px oklch(0.12 0.015 260 / 0.5);
+
+  --shadow-extruded-pressed:
+    inset 1.5px 2px 3px 0px rgba(0, 0, 0, 0.9),
+    0px 1px 1px 0px oklch(0.26 0.008 260 / 0.4);
+
+  --shadow-panel: var(--shadow-extruded-plate);
+  --shadow-inset-well: var(--shadow-sunken-cavity);
+  
+  --shadow-glow-accent: 
+    inset 1px 1px 0px 0px rgba(255, 255, 255, 0.4),
+    1px 1px 0px 0px oklch(0.08 0.02 260 / 0.9),
+    2px 3px 6px 0px rgba(0, 0, 0, 0.75),
+    0px 0px 14px 0px rgba(0, 217, 132, 0.35);
+
+  --shadow-glow-error: 
+    inset 1px 1px 0px 0px rgba(255, 120, 120, 0.25),
+    1px 1px 0px 0px oklch(0.08 0.02 260 / 0.9),
+    2px 4px 8px 0px rgba(0, 0, 0, 0.8),
+    0px 0px 18px 0px rgba(255, 77, 82, 0.25);
+
+  /* Tactile Text Etching */
+  --text-etched: 0px 1px 0px oklch(0.08 0.02 260 / 0.8);
+  --text-etched-light: 0px 1px 0px oklch(0.32 0.01 260 / 0.65);
+}
+
+/* Base Layout & Document Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.oxide-body {
+  width: 360px;
+  min-height: 520px;
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-800);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  overflow-x: hidden;
+  border: 1px solid oklch(0.24 0.01 260);
+  box-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.05);
+}
+
+.oxide-container {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   Header: Swiss Structure + ASCII Precision Chrome
+   ========================================================================== */
+
+.oxide-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border-secondary);
+}
+
+.oxide-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.oxide-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.oxide-brand {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--color-text-raise);
+  text-transform: uppercase;
+}
+
+.oxide-dot {
+  color: var(--color-green-800);
+}
+
+.oxide-badge-version {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-secondary);
+  padding: 1px 6px;
+  border-radius: var(--radius-md);
+  text-transform: uppercase;
+}
+
+.oxide-brand-sub {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+}
+
+.oxide-header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.oxide-btn-icon {
+  background: linear-gradient(145deg, oklch(0.22 0.009 260) 0%, oklch(0.17 0.010 260) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  color: var(--color-text-secondary);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 
+    -1px -1px 2px rgba(255, 255, 255, 0.04),
+    1px 2px 5px rgba(0, 0, 0, 0.5),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.07);
+  transition: all 0.15s ease;
+}
+
+.oxide-btn-icon:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-text-raise);
+  border-color: var(--color-border-raise);
+}
+
+.oxide-btn-icon:active {
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.6);
+  transform: translateY(1px);
+}
+
+/* ==========================================================================
+   Main Flow
+   ========================================================================== */
+
+.oxide-main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   Status Hero Chamber: Level +1 Extruded Security Pod
+   ========================================================================== */
+
+.oxide-status-chamber {
+  background: var(--color-neutral-200);
+  border: 1px solid oklch(0.28 0.01 260);
+  border-radius: var(--radius-xl);
+  padding: 12px 14px;
+  box-shadow: var(--shadow-extruded-plate);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.oxide-status-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.oxide-shield-cell {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.oxide-shield-svg {
+  display: block;
+}
+
+.icon-shield-safe {
+  color: var(--color-green-800);
+}
+
+.icon-shield-threat {
+  color: var(--color-red-800);
+  display: none;
+}
+
+.oxide-status-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.oxide-status-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.oxide-status-headline {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-neutral-1300);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.oxide-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--color-neutral-0);
+  border: 1px solid oklch(0.08 0.02 260);
+  border-radius: var(--radius-md);
+  padding: 2px 7px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-neutral-800);
+  text-shadow: var(--text-etched);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.oxide-pulse-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-neutral-800);
+}
+
+.oxide-status-summary {
+  font-size: 12px;
+  color: var(--color-neutral-800);
+  line-height: 1.4;
+}
+
+/* Verdict Theming for Status Chamber */
+.oxide-status-chamber[data-verdict="no_suspicious_signals"] {
+  border-color: rgba(0, 217, 132, 0.4);
+  box-shadow: var(--shadow-extruded-plate), 0 0 14px rgba(0, 217, 132, 0.15);
+}
+
+.oxide-status-chamber[data-verdict="no_suspicious_signals"] .icon-shield-safe {
+  display: block;
+}
+
+.oxide-status-chamber[data-verdict="no_suspicious_signals"] .icon-shield-threat {
+  display: none;
+}
+
+.oxide-status-chamber[data-verdict="no_suspicious_signals"] .oxide-pulse-dot {
+  background-color: var(--color-green-800);
+  box-shadow: 0 0 6px var(--color-green-800);
+}
+
+.oxide-status-chamber[data-verdict="no_suspicious_signals"] .oxide-status-pill {
+  color: var(--color-green-800);
+  border-color: rgba(0, 217, 132, 0.3);
+}
+
+.oxide-status-chamber[data-verdict="suspicious"] {
+  background: linear-gradient(145deg, oklch(0.24 0.025 11.3) 0%, oklch(0.18 0.03 11.3) 100%);
+  border-color: var(--color-red-800);
+  box-shadow: var(--shadow-glow-error);
+}
+
+.oxide-status-chamber[data-verdict="suspicious"] .icon-shield-safe {
+  display: none;
+}
+
+.oxide-status-chamber[data-verdict="suspicious"] .icon-shield-threat {
+  display: block;
+}
+
+.oxide-status-chamber[data-verdict="suspicious"] .oxide-status-headline {
+  color: var(--color-text-error);
+}
+
+.oxide-status-chamber[data-verdict="suspicious"] .oxide-pulse-dot {
+  background-color: var(--color-red-800);
+  box-shadow: 0 0 6px var(--color-red-800);
+}
+
+.oxide-status-chamber[data-verdict="suspicious"] .oxide-status-pill {
+  color: var(--color-text-error);
+  border-color: rgba(255, 77, 82, 0.4);
+  background: var(--color-bg-error-secondary);
+}
+
+.oxide-status-chamber[data-verdict="uncertain"] {
+  background: linear-gradient(145deg, oklch(0.22 0.025 75) 0%, oklch(0.17 0.025 75) 100%);
+  border-color: var(--color-yellow-800);
+  box-shadow: var(--shadow-extruded-plate), 0 0 12px rgba(246, 196, 69, 0.15);
+}
+
+.oxide-status-chamber[data-verdict="uncertain"] .icon-shield-safe {
+  color: var(--color-yellow-800);
+}
+
+.oxide-status-chamber[data-verdict="uncertain"] .oxide-status-headline {
+  color: var(--color-text-notice);
+}
+
+.oxide-status-chamber[data-verdict="uncertain"] .oxide-pulse-dot {
+  background-color: var(--color-yellow-800);
+  box-shadow: 0 0 6px var(--color-yellow-800);
+}
+
+.oxide-status-chamber[data-verdict="uncertain"] .oxide-status-pill {
+  color: var(--color-text-notice);
+  border-color: rgba(246, 196, 69, 0.4);
+}
+
+/* ==========================================================================
+   Active Threat Card: Level +1 Extruded Security Pod
+   ========================================================================== */
+
+.oxide-threat-card {
+  background: var(--color-neutral-200);
+  border: 1px solid oklch(0.28 0.01 260);
+  border-radius: var(--radius-xl);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--shadow-extruded-plate);
+}
+
+.oxide-threat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.oxide-threat-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.oxide-threat-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--color-red-800);
+  color: var(--color-neutral-0);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.oxide-threat-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-red-800);
+  text-transform: uppercase;
+  text-shadow: var(--text-etched);
+}
+
+.oxide-danger-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-red-800);
+  background: var(--color-neutral-0);
+  border: 1px solid oklch(0.08 0.02 260);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.6);
+  border-radius: var(--radius-md);
+  padding: 1px 6px;
+  text-transform: uppercase;
+}
+
+.oxide-threat-title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-neutral-1300);
+  letter-spacing: -0.01em;
+}
+
+.oxide-threat-desc {
+  font-size: 12px;
+  color: var(--color-neutral-800);
+  line-height: 1.4;
+}
+
+/* Level -1 Sunken Grooved Substrate (Terminal Code Box) */
+.oxide-sandbox-well {
+  background-color: var(--color-neutral-0);
+  border: 1px solid oklch(0.08 0.02 260);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sunken-cavity);
+  overflow: hidden;
+}
+
+.oxide-sandbox-bar {
+  background-color: var(--color-neutral-50);
+  border-bottom: 1px solid oklch(0.08 0.02 260);
+  padding: 3px 8px;
+}
+
+.oxide-sandbox-tag {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-neutral-800);
+  text-transform: uppercase;
+  text-shadow: var(--text-etched);
+}
+
+.oxide-sandbox-pre {
+  margin: 0;
+  padding: 8px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-neutral-1300);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.45;
+  text-shadow: 0 0 2px var(--color-neutral-1300);
+}
+
+.oxide-btn-wipe {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--color-red-800);
+  border: 1px solid oklch(0.85 0.12 11.3 / 0.3);
+  color: var(--color-neutral-0);
+  border-radius: var(--radius-md);
+  padding: 9px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--shadow-extruded-plate);
+  transition: all 0.15s ease;
+}
+
+.oxide-btn-wipe:hover {
+  filter: brightness(1.1);
+}
+
+.oxide-btn-wipe:active {
+  box-shadow: var(--shadow-extruded-pressed);
+  transform: none;
+}
+
+.oxide-btn-wipe.cleared {
+  background: var(--color-green-800);
+  color: var(--color-neutral-0);
+  border-color: var(--color-green-800);
+}
+
+/* ==========================================================================
+   All Clear Banner
+   ========================================================================== */
+
+.oxide-clean-banner {
+  background: var(--color-neutral-200);
+  border: 1px solid rgba(0, 217, 132, 0.35);
+  border-radius: var(--radius-xl);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-extruded-plate);
+}
+
+.oxide-clean-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-md);
+  background: rgba(0, 217, 132, 0.12);
+  border: 1px solid rgba(0, 217, 132, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-green-800);
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.oxide-clean-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.oxide-clean-title {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-green-800);
+  text-transform: uppercase;
+  text-shadow: var(--text-etched);
+}
+
+.oxide-clean-desc {
+  font-size: 11.5px;
+  color: var(--color-neutral-800);
+}
+
+/* ==========================================================================
+   Findings Stack: Stacked Hairline Threat Cards
+   ========================================================================== */
+
+.oxide-findings-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.oxide-finding-card {
+  background: var(--color-neutral-200);
+  border: 1px solid oklch(0.28 0.01 260);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-extruded-plate);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.oxide-finding-card:hover {
+  border-color: oklch(0.34 0.01 260);
+}
+
+.oxide-finding-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.oxide-finding-glyph {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--color-neutral-800);
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-md);
+  background: var(--color-neutral-0);
+  border: 1px solid oklch(0.08 0.02 260);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.oxide-finding-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.oxide-finding-title {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--color-neutral-1300);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.oxide-finding-desc {
+  font-size: 11.5px;
+  color: var(--color-neutral-800);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.oxide-finding-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  transition: background-color 0.15s ease;
+}
+
+.oxide-finding-header:hover {
+  background-color: oklch(0.20 0.008 260 / 0.5);
+}
+
+.oxide-finding-toggle {
+  color: var(--color-text-tertiary);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-md);
+  margin-left: auto;
+  transform: rotate(0deg);
+  cursor: pointer;
+}
+
+.oxide-finding-toggle svg {
+  pointer-events: none;
+}
+
+.oxide-finding-header:hover .oxide-finding-toggle {
+  color: var(--color-neutral-1300);
+}
+
+/* Default State: Details are collapsed */
+.oxide-finding-details {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 12px 10px 12px;
+  border-top: 1px solid oklch(0.08 0.02 260);
+  background-color: var(--color-neutral-50);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Expanded State: Rotate chevron down 90deg and display details */
+.oxide-finding-card.expanded .oxide-finding-toggle {
+  transform: rotate(90deg);
+  color: var(--color-red-800);
+}
+
+.oxide-finding-card.expanded .oxide-finding-details {
+  display: flex;
+}
+
+.oxide-finding-raw-msg {
+  font-size: 11.5px;
+  color: var(--color-neutral-800);
+}
+
+.oxide-finding-evidence {
+  margin: 0;
+  padding: 6px 8px;
+  background-color: var(--color-neutral-0);
+  border-left: 2px solid var(--color-border-default);
+  box-shadow: var(--shadow-sunken-cavity);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-neutral-800);
+  white-space: pre-wrap;
+  word-break: break-all;
+  border-radius: var(--radius-md);
+}
+
+.oxide-finding-code-tag {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Primary Action Button: Extruded Tactical Plate
+   ========================================================================== */
+
+.oxide-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 38px;
+  background-color: var(--color-neutral-200);
+  color: var(--color-green-800);
+  border: 1px solid oklch(0.28 0.01 260);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: var(--text-etched);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: var(--shadow-extruded-plate);
+}
+
+.oxide-btn-primary:hover:not(:disabled) {
+  background-color: oklch(0.25 0.008 260);
+  color: var(--color-neutral-1300);
+}
+
+.oxide-btn-primary:active:not(:disabled) {
+  box-shadow: var(--shadow-extruded-pressed);
+  transform: none;
+}
+
+.oxide-btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.oxide-scan-svg {
+  display: block;
+}
+
+/* ==========================================================================
+   Telemetry Toggle: Footplate Infrastructure Recessed Cavity
+   ========================================================================== */
+
+.oxide-toggle-well {
+  background: var(--color-neutral-50);
+  border: 1px solid oklch(0.08 0.02 260);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  box-shadow: var(--shadow-sunken-cavity);
+}
+
+.oxide-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.oxide-toggle-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-neutral-800);
+}
+
+.oxide-toggle-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-neutral-800);
+  text-transform: uppercase;
+  text-shadow: var(--text-etched);
+}
+
+.oxide-switch-wrap {
+  position: relative;
+  width: 34px;
+  height: 18px;
+}
+
+.oxide-switch-input {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 18px;
+  opacity: 0.001;
+  margin: 0;
+  z-index: 2;
+}
+
+.oxide-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-neutral-0);
+  border: 1px solid oklch(0.08 0.02 260);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sunken-cavity);
+  transition: all 0.2s ease;
+}
+
+.oxide-switch-slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--color-neutral-800);
+  border-radius: 1px;
+  box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.12), 1px 2px 4px rgba(0, 0, 0, 0.6);
+  transition: all 0.2s ease;
+}
+
+.oxide-switch-input:checked + .oxide-switch-slider {
+  background-color: var(--color-neutral-50);
+  border-color: var(--color-border-accent);
+}
+
+.oxide-switch-input:checked + .oxide-switch-slider:before {
+  transform: translateX(16px);
+  background-color: var(--color-green-800);
+  box-shadow: 0 0 6px var(--color-green-800);
+}
+
+/* ==========================================================================
+   Telemetry Micro-bar: Engraved Hardware Status Plate
+   ========================================================================== */
+
+.oxide-meta-bar {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: oklch(0.55 0.005 260);
+  text-shadow: var(--text-etched);
+  text-align: center;
+  line-height: 1.45;
+  white-space: pre-line;
+  padding: 5px 8px;
+  background-color: var(--color-neutral-0);
+  border: 1px solid oklch(0.08 0.02 260);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sunken-cavity);
+}
+
+/* ==========================================================================
+   Blank.ai Deep Intelligence Chamber: Level +1 Extruded Pod
+   ========================================================================== */
+
+.oxide-ai-card {
+  background: var(--color-neutral-200);
+  border: 1px solid oklch(0.28 0.01 260);
+  border-radius: var(--radius-xl);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--shadow-extruded-plate);
+}
+
+.oxide-ai-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-secondary);
+  padding-bottom: 7px;
+}
+
+.oxide-ai-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.oxide-ai-sparkle {
+  color: var(--color-blue-800);
+  font-size: 13px;
+}
+
+.oxide-ai-brand {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  color: var(--color-text-raise);
+  text-transform: uppercase;
+}
+
+.oxide-ai-chip {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  padding: 1px 6px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-secondary);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.oxide-ai-chip.scam {
+  color: var(--color-text-error);
+  border-color: rgba(255, 77, 82, 0.4);
+  background: var(--color-bg-error-secondary);
+}
+
+.oxide-ai-chip.safe {
+  color: var(--color-green-800);
+  border-color: rgba(0, 217, 132, 0.4);
+  background: rgba(0, 217, 132, 0.1);
+}
+
+.oxide-ai-chip.uncertain {
+  color: var(--color-text-notice);
+  border-color: rgba(246, 196, 69, 0.4);
+  background: var(--color-bg-notice-secondary);
+}
+
+.oxide-ai-chip.analyzing {
+  color: var(--color-blue-800);
+  border-color: rgba(99, 149, 255, 0.4);
+}
+
+.oxide-ai-model-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+}
+
+.oxide-ai-idle p {
+  font-size: 11.5px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.oxide-ai-loading {
+  padding: 6px 0;
+}
+
+.oxide-ai-loading-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--color-blue-800);
+  text-transform: uppercase;
+}
+
+.oxide-ai-scan-bar {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--color-blue-800);
+  border-top-color: transparent;
+  border-radius: var(--radius-full);
+  animation: oxideSpin 0.8s linear infinite;
+}
+
+@keyframes oxideSpin {
+  to { transform: rotate(360deg); }
+}
+
+.oxide-ai-result {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.oxide-ai-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid oklch(0.08 0.02 260);
+  background-color: var(--color-neutral-0);
+  box-shadow: var(--shadow-sunken-cavity);
+}
+
+.oxide-ai-banner.ai-banner-scam {
+  border-color: var(--color-red-800);
+  box-shadow: var(--shadow-sunken-cavity), 0 0 12px rgba(255, 77, 82, 0.2);
+}
+
+.oxide-ai-banner.ai-banner-legit {
+  border-color: rgba(0, 217, 132, 0.35);
+  box-shadow: var(--shadow-sunken-cavity), 0 0 12px rgba(0, 217, 132, 0.15);
+}
+
+.oxide-ai-banner.ai-banner-uncertain {
+  border-color: var(--color-yellow-800);
+  box-shadow: var(--shadow-sunken-cavity), 0 0 12px rgba(246, 196, 69, 0.15);
+}
+
+.oxide-ai-banner.ai-banner-byok {
+  border-color: var(--color-blue-800);
+  box-shadow: var(--shadow-sunken-cavity), 0 0 12px rgba(56, 189, 248, 0.15);
+}
+
+.oxide-ai-banner.ai-banner-byok .oxide-ai-banner-title {
+  color: var(--color-blue-800);
+}
+
+.oxide-ai-banner-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.oxide-ai-banner-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.oxide-ai-banner-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-neutral-1300);
+  text-transform: uppercase;
+  text-shadow: var(--text-etched);
+}
+
+.oxide-ai-banner.ai-banner-scam .oxide-ai-banner-title {
+  color: var(--color-red-800);
+}
+
+.oxide-ai-banner.ai-banner-legit .oxide-ai-banner-title {
+  color: var(--color-green-800);
+}
+
+.oxide-ai-banner-score {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-neutral-800);
+  text-transform: uppercase;
+}
+
+.oxide-ai-headline {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-neutral-1300);
+  letter-spacing: -0.01em;
+}
+
+.oxide-ai-explanation {
+  font-size: 11.5px;
+  color: var(--color-neutral-800);
+  line-height: 1.45;
+}
+
+.oxide-ai-reasons-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: var(--color-neutral-0);
+  border: 1px solid oklch(0.08 0.02 260);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sunken-cavity);
+  padding: 8px 10px;
+}
+
+.oxide-ai-reasons-header {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+}
+
+.oxide-ai-reasons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.oxide-ai-reasons-list li {
+  font-size: 11px;
+  color: var(--color-text-default);
+  line-height: 1.35;
+  position: relative;
+  padding-left: 10px;
+}
+
+.oxide-ai-reasons-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-text-tertiary);
+}
+
+/* ==========================================================================
+   Cloud Detailed Passage Inspection (Collapsed / Hidden Area)
+   ========================================================================== */
+
+.oxide-cloud-card {
+  display: block;
+  margin-top: 2px;
+}
+
+.oxide-btn-subtle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px dashed var(--color-border-secondary);
+  color: var(--color-text-tertiary);
+  border-radius: var(--radius-md);
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+}
+
+.oxide-btn-subtle:hover {
+  border-color: var(--color-border-default);
+  color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   Footer: Technical Hardware Specifications
+   ========================================================================== */
+
+.oxide-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 4px 2px;
+  border-top: 1px solid var(--color-border-secondary);
+  margin-top: 2px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.oxide-pillar {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-shadow: 0px 1px 0px oklch(0.08 0.02 260 / 0.8);
+}
+
+.oxide-pillar svg {
+  flex-shrink: 0;
+  color: var(--color-text-tertiary);
+  opacity: 0.8;
+}
+
+.oxide-pillar span {
+  white-space: nowrap;
+}
+
+.oxide-divider {
+  width: 1px;
+  height: 10px;
+  background-color: var(--color-border-secondary);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Options Page Alignment with Oxide Theme
+   ========================================================================== */
+
+body.options {
+  max-width: 680px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--color-bg-default);
+  color: var(--color-text-default);
+  font-family: var(--font-sans);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-panel);
+}
+
+body.options header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-secondary);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
+
+body.options .brand {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: var(--color-text-raise);
+  text-transform: uppercase;
+}
+
+body.options .dot {
+  color: var(--color-green-800);
+}
+
+body.options .tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--color-green-800);
+  background: rgba(0, 217, 132, 0.1);
+  border: 1px solid rgba(0, 217, 132, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--radius-md);
+  text-transform: uppercase;
+}
+
+body.options h1 {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-raise);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+body.options h2 {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text-raise);
+  text-transform: uppercase;
+  margin: 20px 0 8px 0;
+}
+
+body.options p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+body.options ol, body.options ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+body.options li {
+  margin-bottom: 6px;
+}
+
+body.options section.note {
+  background-color: var(--color-bg-raise);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  margin: 18px 0;
+}
+
+body.options select, body.options input[type="password"], body.options input[type="text"] {
+  background-color: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-default);
+  color: var(--color-text-raise);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+body.options button.primary {
+  background-color: var(--color-bg-accent);
+  color: var(--color-text-inverse);
+  border: 1px solid var(--color-green-800);
+  border-radius: var(--radius-xl);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+body.options button.primary:hover {
+  filter: brightness(1.08);
+  box-shadow: var(--shadow-glow-accent);
+}
+
+body.options button.link {
+  background: transparent;
+  border: none;
+  color: var(--color-blue-800);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-top: 6px;
+}
+
+body.options a {
+  color: var(--color-blue-800);
+  text-decoration: underline;
+}
+

@@ -1,0 +1,290 @@
+{
+  "research_status": "exploratory_synthetic_seed",
+  "dataset_sha256": "1a5dfcbf7e8d26077f7f47450f1ff5df5a0cbe03d0e86394ee91daa3ea3ba6c6",
+  "model_metadata": {
+    "model_version": "blank-1a5dfcbf7e8d",
+    "dataset_sha256": "1a5dfcbf7e8d26077f7f47450f1ff5df5a0cbe03d0e86394ee91daa3ea3ba6c6",
+    "artifact_sha256": "dde864c8b269fc9e6b680499513421fdcef3c47de3c408659f71100e8d142255",
+    "sklearn_version": "1.8.0",
+    "python_version": "3.14.3",
+    "library_versions": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3"
+    },
+    "policy_version": "blank-policy-1",
+    "thresholds": {
+      "ml": 0.5,
+      "hybrid": 0.95,
+      "hybrid_no_context": 0.95
+    },
+    "threshold_objective": "validation precision >= 0.90, >=5 alerts; maximize recall",
+    "advisory_threshold": 0.5,
+    "advisory_note": "Default classifier boundary; not calibrated probability",
+    "split_sizes": {
+      "test": 14,
+      "validation": 14,
+      "train": 36
+    },
+    "synthetic_count": 64,
+    "human_reviewed_count": 0
+  },
+  "test_size": 14,
+  "family_count": 32,
+  "test_families": [
+    "authored_family_01",
+    "authored_family_07",
+    "authored_family_15",
+    "authored_family_16",
+    "authored_family_19",
+    "authored_family_22",
+    "authored_family_30"
+  ],
+  "test_ids": [
+    "seed_01_0",
+    "seed_01_1",
+    "seed_07_0",
+    "seed_07_1",
+    "seed_15_0",
+    "seed_15_1",
+    "seed_16_0",
+    "seed_16_1",
+    "seed_19_0",
+    "seed_19_1",
+    "seed_22_0",
+    "seed_22_1",
+    "seed_30_0",
+    "seed_30_1"
+  ],
+  "platform": "Windows-11-10.0.26300-SP0",
+  "results": {
+    "rules": {
+      "strict": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "matrix_order": "[[TN, FP], [FN, TP]]",
+        "false_positive_rate": 0.0
+      },
+      "all_warnings": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "matrix_order": "[[TN, FP], [FN, TP]]",
+        "false_positive_rate": 0.0
+      },
+      "uncertain_rate": 0.0,
+      "decision_coverage": 1.0,
+      "latency_ms": {
+        "median": 0.0375,
+        "p95": 0.09794999999999995,
+        "scope": "one block, warm model, single measured pass; not browser latency"
+      },
+      "errors": [],
+      "subsets": {
+        "synthetic": 14,
+        "sourced_or_recreated": 0
+      }
+    },
+    "ml": {
+      "strict": {
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "f1": 0.6667,
+        "confusion_matrix": [
+          [
+            6,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "matrix_order": "[[TN, FP], [FN, TP]]",
+        "false_positive_rate": 0.25
+      },
+      "all_warnings": {
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "f1": 0.6667,
+        "confusion_matrix": [
+          [
+            6,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "matrix_order": "[[TN, FP], [FN, TP]]",
+        "false_positive_rate": 0.25
+      },
+      "uncertain_rate": 0.0,
+      "decision_coverage": 1.0,
+      "latency_ms": {
+        "median": 0.28300000000000003,
+        "p95": 0.7073499999999998,
+        "scope": "one block, warm model, single measured pass; not browser latency"
+      },
+      "errors": [
+        {
+          "id": "seed_01_1",
+          "kind": "false_negative",
+          "label": "clickfix",
+          "verdict": "no_suspicious_signals",
+          "text": "Prove you are human to continue: Win + R, Ctrl + V, Enter."
+        },
+        {
+          "id": "seed_07_0",
+          "kind": "false_negative",
+          "label": "clickfix",
+          "verdict": "no_suspicious_signals",
+          "text": "Verify you are human. Press W i n + R, then Ctrl + V, then Enter."
+        },
+        {
+          "id": "seed_19_1",
+          "kind": "false_positive",
+          "label": "legitimate",
+          "verdict": "suspicious",
+          "text": "The security check succeeded. Continue to the requested course material."
+        },
+        {
+          "id": "seed_22_0",
+          "kind": "false_positive",
+          "label": "legitimate",
+          "verdict": "suspicious",
+          "text": "PowerShell lesson: paste Get-Date into the terminal and press Enter. It displays the current date."
+        }
+      ],
+      "subsets": {
+        "synthetic": 14,
+        "sourced_or_recreated": 0
+      }
+    },
+    "hybrid": {
+      "strict": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "matrix_order": "[[TN, FP], [FN, TP]]",
+        "false_positive_rate": 0.0
+      },
+      "all_warnings": {
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571,
+        "confusion_matrix": [
+          [
+            6,
+            2
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "matrix_order": "[[TN, FP], [FN, TP]]",
+        "false_positive_rate": 0.25
+      },
+      "uncertain_rate": 0.14285714285714285,
+      "decision_coverage": 0.8571428571428572,
+      "latency_ms": {
+        "median": 0.2655,
+        "p95": 0.5751499999999999,
+        "scope": "one block, warm model, single measured pass; not browser latency"
+      },
+      "errors": [],
+      "subsets": {
+        "synthetic": 14,
+        "sourced_or_recreated": 0
+      }
+    },
+    "hybrid_no_context": {
+      "strict": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "matrix_order": "[[TN, FP], [FN, TP]]",
+        "false_positive_rate": 0.0
+      },
+      "all_warnings": {
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571,
+        "confusion_matrix": [
+          [
+            6,
+            2
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "matrix_order": "[[TN, FP], [FN, TP]]",
+        "false_positive_rate": 0.25
+      },
+      "uncertain_rate": 0.14285714285714285,
+      "decision_coverage": 0.8571428571428572,
+      "latency_ms": {
+        "median": 0.2585,
+        "p95": 0.5487,
+        "scope": "one block, warm model, single measured pass; not browser latency"
+      },
+      "errors": [],
+      "subsets": {
+        "synthetic": 14,
+        "sourced_or_recreated": 0
+      }
+    }
+  },
+  "limitations": [
+    "Small authored corpus, not a real-world protection estimate",
+    "Synthetic test wording may share author style despite family separation",
+    "Uncertain counts as non-detection in strict metrics and as alert in all_warnings",
+    "Test examples must not be reused for threshold tuning; revisions require a fresh evaluation set"
+  ]
+}

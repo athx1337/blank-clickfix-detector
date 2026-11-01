@@ -1,0 +1,8 @@
+{
+  "target_human_reviewed_examples": 200,
+  "target_independent_families": 40,
+  "actual_human_reviewed_examples": 0,
+  "candidate_count": 40,
+  "status": "pending actual human annotation and independent source collection",
+  "note": "Authored template IDs do not establish independent campaign/source families. The review queue is excluded from training and research evaluation. Existing seed and upstream design examples remain development material."
+}

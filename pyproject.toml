@@ -1,0 +1,17 @@
+[project]
+name = "blank"
+version = "0.3.0"
+description = "Context-aware detection of deceptive copy-and-run web instructions"
+requires-python = ">=3.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not browser'"
+markers = ["browser: real Chromium extension integration tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py314"
+
+[tool.coverage.run]
+source = ["backend", "ml"]

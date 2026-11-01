@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BLANK · ClickFix Defense</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body class="oxide-body" data-threat="false">
+  <div class="oxide-container">
+    <!-- Header: Swiss Modernist Structure + ASCII Precision Chrome -->
+    <header class="oxide-header">
+      <div class="oxide-brand-col">
+        <div class="oxide-brand-row">
+          <span class="oxide-brand">BLANK<span class="oxide-dot">.</span></span>
+          <span class="oxide-badge-version">[ v0.3.0 ]</span>
+        </div>
+        <span class="oxide-brand-sub">CLICKFIX DEFENSE · HARDENED</span>
+      </div>
+
+      <div class="oxide-header-actions">
+        <button id="settings" class="oxide-btn-icon" title="Settings" aria-label="Settings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Flow -->
+    <main class="oxide-main">
+      <!-- Status Hero Chamber: Elevated Surface with 1px Hairline Stroke -->
+      <section class="oxide-status-chamber" id="status" data-verdict="ready" aria-live="polite">
+        <div class="oxide-status-inner">
+          <div class="oxide-shield-cell" id="status-shield-graphic">
+            <svg class="oxide-shield-svg icon-shield-safe" width="40" height="46" viewBox="0 0 24 28" fill="none">
+              <path d="M12 2L3 5.5v7.5c0 6.5 4.5 12.5 9 14 4.5-1.5 9-7.5 9-14V5.5L12 2z" stroke="currentColor" stroke-width="1.8" fill="rgba(0, 217, 132, 0.12)"/>
+              <path d="M8 13.5l3 3 5.5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg class="oxide-shield-svg icon-shield-threat" width="40" height="46" viewBox="0 0 24 28" fill="none">
+              <path d="M12 2L3 5.5v7.5c0 6.5 4.5 12.5 9 14 4.5-1.5 9-7.5 9-14V5.5L12 2z" stroke="currentColor" stroke-width="1.8" fill="rgba(255, 77, 82, 0.15)"/>
+              <line x1="12" y1="9" x2="12" y2="14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="12" cy="18" r="1.3" fill="currentColor"/>
+            </svg>
+          </div>
+
+          <div class="oxide-status-content">
+            <div class="oxide-status-title-row">
+              <h2 class="oxide-status-headline" id="status-headline">Protected</h2>
+              <div class="oxide-status-pill">
+                <span class="oxide-pulse-dot"></span>
+                <span id="state">Ready</span>
+              </div>
+            </div>
+            <p id="summary" class="oxide-status-summary">Scan visible webpage instructions for deceptive execution requests.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Active Threat Vector Card: Isolated Perimeter Boundary for System Clipboard Hijack -->
+      <section class="oxide-threat-card" id="clipboard-card" style="display: none;">
+        <div class="oxide-threat-header">
+          <div class="oxide-threat-badge-row">
+            <span class="oxide-threat-glyph">!</span>
+            <span class="oxide-threat-label">[ CLIPBOARD HIJACK ]</span>
+          </div>
+          <span class="oxide-danger-tag">[ SILENT AUTO-COPY ]</span>
+        </div>
+        <div class="oxide-threat-title">Secret Command Copied to Clipboard</div>
+        <p class="oxide-threat-desc">This site automatically placed an executable script in your system clipboard. Do not paste (Ctrl + V) into Windows Run or Terminal.</p>
+        
+        <!-- Isolated Sandbox Box -->
+        <div class="oxide-sandbox-well">
+          <div class="oxide-sandbox-bar">
+            <span class="oxide-sandbox-tag">SANDBOX READOUT · RAW BUFFER</span>
+          </div>
+          <pre class="oxide-sandbox-pre"><code id="clipboard-code-text"></code></pre>
+        </div>
+
+        <button type="button" class="oxide-btn-wipe" id="clipboard-clear-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+          <span id="clipboard-clear-label">WIPE CLIPBOARD NOW</span>
+        </button>
+      </section>
+
+      <!-- Primary Action: Phosphor CRT Green Accent Button -->
+      <button class="oxide-btn-primary" id="scan">
+        <svg class="oxide-scan-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 8V5a2 2 0 0 1 2-2h3"/>
+          <path d="M16 3h3a2 2 0 0 1 2 2v3"/>
+          <path d="M21 16v3a2 2 0 0 1-2 2h-3"/>
+          <path d="M8 21H5a2 2 0 0 1-2-2v-3"/>
+        </svg>
+        <span id="scan-btn-label">SCAN THIS PAGE</span>
+      </button>
+
+      <!-- Telemetry Toggle: Recessed Inset Track with Machined Switch -->
+      <section class="oxide-toggle-well">
+        <label class="oxide-toggle-row" for="auto">
+          <div class="oxide-toggle-left">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            <span class="oxide-toggle-label">AUTO SCAN</span>
+          </div>
+          <div class="oxide-switch-wrap">
+            <input type="checkbox" id="auto" class="oxide-switch-input" aria-label="Automatic scans on this site">
+            <span class="oxide-switch-slider"></span>
+          </div>
+        </label>
+      </section>
+
+      <!-- Findings List (Hairline Stacked Cards with Terminal Indicators) -->
+      <div id="findings" class="oxide-findings-stack"></div>
+
+      <!-- Blank.ai Deep Intelligence Chamber -->
+      <section class="oxide-ai-card" id="blank-ai-section">
+        <div class="oxide-ai-header">
+          <div class="oxide-ai-brand-row">
+            <span class="oxide-ai-sparkle">✦</span>
+            <span class="oxide-ai-brand">BLANK.AI</span>
+            <span class="oxide-ai-chip" id="ai-chip">[ READY ]</span>
+          </div>
+        </div>
+
+        <div class="oxide-ai-body" id="ai-body">
+          <!-- State: Idle / Ready -->
+          <div class="oxide-ai-idle" id="ai-idle">
+            <p>Click "SCAN THIS PAGE" to run deep AI verification on visible instructions and system clipboard.</p>
+          </div>
+
+          <!-- State: Analyzing Shimmer -->
+          <div class="oxide-ai-loading" id="ai-loading" style="display: none;">
+            <div class="oxide-ai-loading-row">
+              <div class="oxide-ai-scan-bar"></div>
+              <span>BLANK.AI IS AUDITING PAGE &amp; CLIPBOARD…</span>
+            </div>
+          </div>
+
+          <!-- State: Result Content -->
+          <div class="oxide-ai-result" id="ai-result" style="display: none;">
+            <div class="oxide-ai-banner" id="ai-verdict-banner">
+              <div class="oxide-ai-banner-icon" id="ai-verdict-icon">⚠️</div>
+              <div class="oxide-ai-banner-meta">
+                <div class="oxide-ai-banner-title" id="ai-verdict-title">SCAM DETECTED</div>
+                <div class="oxide-ai-banner-score" id="ai-verdict-sub">CONFIDENCE: 99%</div>
+              </div>
+            </div>
+
+            <div class="oxide-ai-headline" id="ai-headline"></div>
+            <p class="oxide-ai-explanation" id="ai-explanation"></p>
+
+            <div class="oxide-ai-reasons-box" id="ai-reasons-box">
+              <div class="oxide-ai-reasons-header">[ KEY RISK FACTORS IDENTIFIED ]</div>
+              <ul class="oxide-ai-reasons-list" id="ai-reasons-list"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detailed Inspection Drawer (Maintained for BYOK Passages) -->
+      <section class="oxide-cloud-card" id="cloud-section">
+        <div class="cloud-action-area">
+          <button id="cloud-preview" class="oxide-btn-subtle">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+            <span>DETAILED PASSAGE INSPECTION</span>
+          </button>
+          <p id="cloud-status" role="status" aria-live="polite"></p>
+
+          <form id="cloud-form" hidden>
+            <div class="cloud-passages-heading">Review passages before sending:</div>
+            <div id="cloud-passages"></div>
+            <label class="cloud-consent-row">
+              <input id="cloud-consent" type="checkbox" required>
+              <span>Send only checked passages to provider. I have reviewed them for private information.</span>
+            </label>
+            <p id="cloud-policy" class="muted"></p>
+            <button id="cloud-send" class="oxide-btn-primary">SEND SELECTED PASSAGES</button>
+          </form>
+
+          <button id="cloud-cancel" class="oxide-btn-subtle" hidden>CANCEL CLOUD ANALYSIS</button>
+          <div id="cloud-findings"></div>
+        </div>
+      </section>
+
+      <!-- Telemetry Meta Bar -->
+      <div id="meta" class="oxide-meta-bar"></div>
+    </main>
+
+    <!-- Footer: Hardware Trust Indicators -->
+    <footer class="oxide-footer">
+      <div class="oxide-pillar">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="1" y1="1" x2="23" y2="23"/>
+          <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/>
+          <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/>
+          <path d="M10.71 5.05A16 16 0 0 1 22.58 9"/>
+          <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+          <line x1="12" y1="20" x2="12.01" y2="20"/>
+        </svg>
+        <span>OFFLINE</span>
+      </div>
+      <div class="oxide-divider"></div>
+      <div class="oxide-pillar">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9 12 11 14 15 10"/>
+        </svg>
+        <span>NO TRACKING</span>
+      </div>
+      <div class="oxide-divider"></div>
+      <div class="oxide-pillar">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"/>
+          <polyline points="8 6 2 12 8 18"/>
+        </svg>
+        <span>AUDITED CODE</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="cloud-config.js"></script>
+  <script src="cloud.js"></script>
+  <script src="popup.js"></script>
+  <script src="cloud-popup.js"></script>
+</body>
+</html>

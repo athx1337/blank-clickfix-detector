@@ -1,0 +1,58 @@
+# Virtual environments
+.venv/
+.venv-ai/
+venv/
+ENV/
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Local secrets, pairing & test profiles
+.env
+.env.*
+.local/
+test-profile*/
+scratch/
+experiments/
+checkpoints/
+
+# Python caches and artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.log
+
+# Large binary artifacts (built on demand, not in git)
+models/*.joblib
+models/*.json
+extension/assets/semantic/
+
+# Build and test outputs
+dist/
+reports/
+test-results/
+
+# Agent internals & tool cache
+.agents/gsd-core/
+.agents/skills/gsd-*/
+.agents/agents/
+.agents/hooks/
+.agents/scripts/
+.agents/settings.json
+.agents/mcp_config.json
+.agents/.gsd-profile
+.agents/gsd-*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE & Editor files
+.vscode/
+.idea/
